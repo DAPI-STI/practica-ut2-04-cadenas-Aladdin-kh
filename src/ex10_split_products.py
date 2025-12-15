@@ -11,4 +11,7 @@ Devuelve una lista con ["pan", "leche", "huevos"], sin espacios sobrantes.
 def split_products(csv_line: str) -> list[str]:
     """Devuelve una lista de productos sin espacios extra a partir de una línea CSV simple."""
     # TODO: usa .split(",") y .strip() para limpiar espacios
+    productos = [producto.strip() for producto in csv_line.split(",")]
+    productos = [producto for producto in productos if producto]
+    return productos
     raise NotImplementedError("Implementa split_products(csv_line)")

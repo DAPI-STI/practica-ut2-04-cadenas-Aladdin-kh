@@ -13,5 +13,15 @@ def phone_core(s: str) -> str:
     - La primera parte debe comenzar por "+" (prefijo).
     - La parte central debe ser numérica.
     """
+    s= s.strip()
+    partes = s.split("-")
+    if len(partes) != 3:
+        raise ValueError("El formato del teléfono es incorrecto.")
+    prefijo, numero, extension = partes
+    if not prefijo.startswith("+"):
+        raise ValueError("El prefijo debe comenzar con '+'.")
+    if not numero.isdigit():
+        raise ValueError("La parte central debe ser numérica.")
+    return numero
     # TODO: usa .strip(), .split("-") y validaciones con .isdigit() y startswith("+")
     raise NotImplementedError("Implementa phone_core(s)")
